@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1639810896",
+        "python_version": "3.9.5 (tags/v3.9.5:0a7dcbd, May  3 2021, 17:27:52) [MSC v.1928 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\OUA\\Desktop\\Osama\\UnityProjects\\Boxes-Footballs\\Boxes and Footballs v1\\venv\\Scripts\\mlagents-learn",
+        "mlagents_version": "0.27.0",
+        "mlagents_envs_version": "0.27.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.10.0+cu102",
+        "numpy_version": "1.21.4",
+        "end_time_seconds": "1639810905"
+    },
+    "total": 9.7708398,
+    "count": 1,
+    "self": 0.006216499999998959,
+    "children": {
+        "run_training.setup": {
+            "total": 0.1876177000000001,
+            "count": 1,
+            "self": 0.1876177000000001
+        },
+        "TrainerController.start_learning": {
+            "total": 9.5770056,
+            "count": 1,
+            "self": 0.0004296999999979789,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 9.576562899999999,
+                    "count": 1,
+                    "self": 9.576562899999999
+                },
+                "trainer_threads": {
+                    "total": 9.000000016357035e-07,
+                    "count": 1,
+                    "self": 9.000000016357035e-07
+                },
+                "TrainerController._save_models": {
+                    "total": 1.2100000001069589e-05,
+                    "count": 1,
+                    "self": 1.2100000001069589e-05
+                }
+            }
+        }
+    }
+}
