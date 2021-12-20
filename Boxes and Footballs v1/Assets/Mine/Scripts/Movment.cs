@@ -6,7 +6,7 @@ public class Movment : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public Rigidbody Rb;
+    private Rigidbody Rb;
     public float force = 1000f;
     public float max_speed = 11f;
     public float max_angular_speed = 2.5f;
@@ -22,7 +22,10 @@ public class Movment : MonoBehaviour
     private bool shot = false;
     private Vector3 initpos;
     private Vector3 initvelocity;
-
+    private void Start()
+    {
+        Rb = GetComponent<Rigidbody>();
+    }
     // Update is called once per frame
     void FixedUpdate()  //fixed update is for physics
     {
@@ -63,7 +66,7 @@ public class Movment : MonoBehaviour
             
             initvelocity = Rb.velocity;
             initpos = Rb.transform.position;
-            Rb.AddRelativeForce(0, 0, force*20 * Time.deltaTime);
+            Rb.AddRelativeForce(0, 0, force*15 * Time.deltaTime);
         }
 
 
@@ -75,4 +78,5 @@ public class Movment : MonoBehaviour
 
 
     }
+
 }
