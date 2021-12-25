@@ -7,7 +7,7 @@ public class Movment : MonoBehaviour
     // Start is called before the first frame update
 
     private Rigidbody Rb;
-    public float force = 1000f;
+    public float force = 2000f;
     public float max_speed = 11f;
     public float max_angular_speed = 2.5f;
     public float shoot_distance = 3f;

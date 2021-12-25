@@ -5,7 +5,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 
-public class AttackerAgent : Agent
+public class DefenderAgent : Agent
 {
     //MOVMENT
     private Rigidbody Rb;
@@ -13,7 +13,7 @@ public class AttackerAgent : Agent
     public float max_speed = 11f;
     public float max_angular_speed = 2.5f;
     public float shoot_distance = 3f;
-    
+
     //for testing 
     public KeyCode forward = KeyCode.UpArrow;
     public KeyCode backward = KeyCode.DownArrow;
@@ -32,16 +32,11 @@ public class AttackerAgent : Agent
 
 
     [SerializeField] private Transform ballTransform;
-    [SerializeField] private GameObject mygoal;
+    [SerializeField] private GameObject defendinggoal;
 
     private void Start()
     {
         Rb = GetComponent<Rigidbody>();
-    }
-
-    public override void CollectObservations(VectorSensor sensor)
-    {
-        sensor.AddObservation(Rb.transform.position);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -88,15 +83,10 @@ public class AttackerAgent : Agent
         if (shoot_key && shot == false)   //start shoot
         {
             shot = true;
+
             initvelocity = Rb.velocity;
             initpos = Rb.transform.position;
             Rb.AddRelativeForce(0, 0, force * 15 * Time.deltaTime);
-            //shooting reward only for attacker
-            if (Vector3.Distance(ballTransform.position, Rb.position) < 2) 
-            {
-                AddReward(100);
-                Debug.Log(GetCumulativeReward());
-            }
         }
 
 
@@ -107,12 +97,17 @@ public class AttackerAgent : Agent
         }
 
     }
+
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        sensor.AddObservation(Rb.transform.position);
+    }
     /*
     public override void Heuristic(in ActionBuffers actionsOut) //for test purposes only
     {
         ActionSegment<int> actions = actionsOut.DiscreteActions;
-        if (Input.GetKey(forward)) 
-        { 
+        if (Input.GetKey(forward))
+        {
             actions[0] = 1;
         }
         if (Input.GetKey(backward))
@@ -136,21 +131,37 @@ public class AttackerAgent : Agent
     */
     public void Update()
     {
-        if (mygoal.GetComponent<GoalScript>().scored == true)
+        if (defendinggoal.GetComponent<GoalScript>().scored == true)
         {
-            AddReward(1000);
+            AddReward(-500);
             Debug.Log(GetCumulativeReward());
             EndEpisode();
         }
-        AddReward(-0.1f);
-        AddReward(1/Vector3.Distance(ballTransform.position, Rb.position));
+        float agent_from_goal = Vector3.Distance(defendinggoal.GetComponent<Transform>().position, Rb.position);
+        float ball_from_goal = Vector3.Distance(defendinggoal.GetComponent<Transform>().position, ballTransform.position);
+        if (agent_from_goal >= 5 && agent_from_goal <= 15)
+        {
+            AddReward(1);
+        }
+        else if (agent_from_goal >= 15)
+        {
+            AddReward(-1);
+        }
+        else if (agent_from_goal <= 5)
+        {
+            AddReward(-0.1f);
+        }
+        if (ball_from_goal <= 5)
+        {
+            AddReward(-3);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "ball") 
+        if (collision.collider.tag == "ball")
         {
-            AddReward(100);
+            AddReward(20);
             Debug.Log(GetCumulativeReward());
         }
         if (collision.collider.tag == "boundary")
@@ -158,19 +169,19 @@ public class AttackerAgent : Agent
             AddReward(-5);
             Debug.Log(GetCumulativeReward());
         }
-        
+
     }
 
     private void OnCollisionStay(Collision collision)
     {
         if (collision.collider.tag == "ball")
         {
-            AddReward(-10f);
+            AddReward(20);
             Debug.Log(GetCumulativeReward());
         }
         if (collision.collider.tag == "boundary")
         {
-            AddReward(-2f);
+            AddReward(-10);
             Debug.Log(GetCumulativeReward());
         }
     }

@@ -1,7 +1,73 @@
 {
+    "Attack": {
+        "checkpoints": [
+            {
+                "steps": 10368,
+                "file_path": "results\\ppo\\Attack\\Attack-10368.onnx",
+                "reward": null,
+                "creation_time": 1640462297.5418692,
+                "auxillary_file_paths": [
+                    "results\\ppo\\Attack\\Attack-10368.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 10368,
+            "file_path": "results\\ppo\\Attack.onnx",
+            "reward": null,
+            "creation_time": 1640462297.5418692,
+            "auxillary_file_paths": [
+                "results\\ppo\\Attack\\Attack-10368.pt"
+            ]
+        }
+    },
+    "Defend": {
+        "checkpoints": [
+            {
+                "steps": 20736,
+                "file_path": "results\\ppo\\Defend\\Defend-20736.onnx",
+                "reward": null,
+                "creation_time": 1640462297.7937255,
+                "auxillary_file_paths": [
+                    "results\\ppo\\Defend\\Defend-20736.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 20736,
+            "file_path": "results\\ppo\\Defend.onnx",
+            "reward": null,
+            "creation_time": 1640462297.7937255,
+            "auxillary_file_paths": [
+                "results\\ppo\\Defend\\Defend-20736.pt"
+            ]
+        }
+    },
+    "Keep": {
+        "checkpoints": [
+            {
+                "steps": 10368,
+                "file_path": "results\\ppo\\Keep\\Keep-10368.onnx",
+                "reward": null,
+                "creation_time": 1640462298.0355873,
+                "auxillary_file_paths": [
+                    "results\\ppo\\Keep\\Keep-10368.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 10368,
+            "file_path": "results\\ppo\\Keep.onnx",
+            "reward": null,
+            "creation_time": 1640462298.0355873,
+            "auxillary_file_paths": [
+                "results\\ppo\\Keep\\Keep-10368.pt"
+            ]
+        }
+    },
     "metadata": {
         "stats_format_version": "0.3.0",
         "mlagents_version": "0.27.0",
-        "torch_version": "1.10.0+cu102"
+        "torch_version": "1.10.1+cu113"
     }
 }

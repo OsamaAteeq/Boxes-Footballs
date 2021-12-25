@@ -7,7 +7,7 @@ public class GoalScript : MonoBehaviour
     public GameObject points;
     public GameObject ball;
     public Timer runnin;
-    private bool scored = false;
+    public bool scored = false;
     private void Start()
     {
     }
