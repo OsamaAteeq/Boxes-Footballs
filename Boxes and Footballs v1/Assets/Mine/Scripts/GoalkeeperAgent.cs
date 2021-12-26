@@ -100,7 +100,8 @@ public class GoalkeeperAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(Rb.transform.position);
+        sensor.AddObservation(Vector3.Angle(Rb.transform.position, ballTransform.position));
+        sensor.AddObservation(Vector3.Distance(Rb.transform.position, defendinggoal.transform.position));
     }
     /*
     public override void Heuristic(in ActionBuffers actionsOut) //for test purposes only

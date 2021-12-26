@@ -41,7 +41,7 @@ public class AttackerAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(Rb.transform.position);
+        sensor.AddObservation(Vector3.Angle(Rb.transform.position, ballTransform.position));
     }
 
     public override void OnActionReceived(ActionBuffers actions)
