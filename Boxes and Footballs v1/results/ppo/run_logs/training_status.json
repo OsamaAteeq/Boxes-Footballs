@@ -2,66 +2,31 @@
     "Attack": {
         "checkpoints": [
             {
-                "steps": 10368,
-                "file_path": "results\\ppo\\Attack\\Attack-10368.onnx",
+                "steps": 499979,
+                "file_path": "results\\ppo\\Attack\\Attack-499979.onnx",
                 "reward": null,
-                "creation_time": 1640462297.5418692,
+                "creation_time": 1640518901.907495,
                 "auxillary_file_paths": [
-                    "results\\ppo\\Attack\\Attack-10368.pt"
+                    "results\\ppo\\Attack\\Attack-499979.pt"
+                ]
+            },
+            {
+                "steps": 500043,
+                "file_path": "results\\ppo\\Attack\\Attack-500043.onnx",
+                "reward": null,
+                "creation_time": 1640518902.0374215,
+                "auxillary_file_paths": [
+                    "results\\ppo\\Attack\\Attack-500043.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 10368,
+            "steps": 500043,
             "file_path": "results\\ppo\\Attack.onnx",
             "reward": null,
-            "creation_time": 1640462297.5418692,
+            "creation_time": 1640518902.0374215,
             "auxillary_file_paths": [
-                "results\\ppo\\Attack\\Attack-10368.pt"
-            ]
-        }
-    },
-    "Defend": {
-        "checkpoints": [
-            {
-                "steps": 20736,
-                "file_path": "results\\ppo\\Defend\\Defend-20736.onnx",
-                "reward": null,
-                "creation_time": 1640462297.7937255,
-                "auxillary_file_paths": [
-                    "results\\ppo\\Defend\\Defend-20736.pt"
-                ]
-            }
-        ],
-        "final_checkpoint": {
-            "steps": 20736,
-            "file_path": "results\\ppo\\Defend.onnx",
-            "reward": null,
-            "creation_time": 1640462297.7937255,
-            "auxillary_file_paths": [
-                "results\\ppo\\Defend\\Defend-20736.pt"
-            ]
-        }
-    },
-    "Keep": {
-        "checkpoints": [
-            {
-                "steps": 10368,
-                "file_path": "results\\ppo\\Keep\\Keep-10368.onnx",
-                "reward": null,
-                "creation_time": 1640462298.0355873,
-                "auxillary_file_paths": [
-                    "results\\ppo\\Keep\\Keep-10368.pt"
-                ]
-            }
-        ],
-        "final_checkpoint": {
-            "steps": 10368,
-            "file_path": "results\\ppo\\Keep.onnx",
-            "reward": null,
-            "creation_time": 1640462298.0355873,
-            "auxillary_file_paths": [
-                "results\\ppo\\Keep\\Keep-10368.pt"
+                "results\\ppo\\Attack\\Attack-500043.pt"
             ]
         }
     },

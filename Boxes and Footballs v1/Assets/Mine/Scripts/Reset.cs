@@ -19,8 +19,8 @@ public class Reset : MonoBehaviour
     {
         Debug.Log(count);
         count++;
-        pos = transform.position;
-        rot = transform.rotation;
+        pos = transform.localPosition;
+        rot = transform.localRotation;
     }
 
     // Update is called once per frame
@@ -35,8 +35,9 @@ public class Reset : MonoBehaviour
         {
             count2--;
             Debug.Log(count2);
-            this.transform.position = pos;
-            this.transform.rotation = rot;
+            this.transform.localPosition = pos;
+            this.transform.localRotation = rot;
+            
             if (count2 == 0) 
             {
                 should_reset = false;

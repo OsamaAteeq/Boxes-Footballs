@@ -11,6 +11,7 @@ public class Movment : MonoBehaviour
     public float max_speed = 11f;
     public float max_angular_speed = 2.5f;
     public float shoot_distance = 3f;
+
     public KeyCode forward = KeyCode.UpArrow;
     public KeyCode backward = KeyCode.DownArrow;
     public KeyCode right = KeyCode.RightArrow;
@@ -18,18 +19,23 @@ public class Movment : MonoBehaviour
     public KeyCode shoot = KeyCode.Space;
 
 
-    private bool invert = false;
+    private bool invert = false;    //reverse
+    
+    //for shooting
     private bool shot = false;
     private Vector3 initpos;
     private Vector3 initvelocity;
+    //for shooting
+
     private void Start()
     {
         Rb = GetComponent<Rigidbody>();
+        Rb.maxAngularVelocity = max_angular_speed;
     }
     // Update is called once per frame
     void FixedUpdate()  //fixed update is for physics
     {
-        Rb.maxAngularVelocity = max_angular_speed;
+        
         if (Input.GetKey(forward) && Rb.velocity.magnitude < max_speed) //move forward
         {
             invert = false;

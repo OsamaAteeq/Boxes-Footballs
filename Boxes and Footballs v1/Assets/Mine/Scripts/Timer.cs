@@ -11,6 +11,7 @@ public class Timer : MonoBehaviour
     public int fake_seconds = 0;
     public int fake_minutes = 90;
     public string display = "90:00";
+
     public bool reducing = false;
     private bool should_reduce = true;
     private int fake2;
@@ -54,6 +55,7 @@ public class Timer : MonoBehaviour
 
     IEnumerator StopWatch() 
     {
+        //calculations
         float ratio = (float)minutes / (float)fake2;
         reducing = true;
         
@@ -71,6 +73,9 @@ public class Timer : MonoBehaviour
         {
             fake_seconds--;
         }
+        //calculations
+
+        //display
         if (fake_minutes < 10 && fake_seconds<10)
         {
             display = "0" + fake_minutes + ":0" + fake_seconds;
@@ -90,6 +95,6 @@ public class Timer : MonoBehaviour
         TextMeshProUGUI tmp = GetComponent<TextMeshProUGUI>();
         tmp.text = display;
         reducing = false;
-
+        //display
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class GoalScript : MonoBehaviour
 {
     public GameObject points;
-    public GameObject ball;
     public Timer runnin;
     public bool scored = false;
     private void Start()

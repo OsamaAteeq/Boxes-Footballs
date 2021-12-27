@@ -28,6 +28,7 @@ public class DefenderAgent : Agent
     private bool shot = false;
     private Vector3 initpos;
     private Vector3 initvelocity;
+
     //MOVMENT
 
 
@@ -85,12 +86,12 @@ public class DefenderAgent : Agent
             shot = true;
 
             initvelocity = Rb.velocity;
-            initpos = Rb.transform.position;
+            initpos = Rb.transform.localPosition;
             Rb.AddRelativeForce(0, 0, force * 15 * Time.deltaTime);
         }
 
 
-        if (shot == true && Vector3.Distance(Rb.transform.position, initpos) >= shoot_distance) //stop shoot
+        if (shot == true && Vector3.Distance(Rb.transform.localPosition, initpos) >= shoot_distance) //stop shoot
         {
             shot = false;
             Rb.velocity = initvelocity;
@@ -100,8 +101,8 @@ public class DefenderAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(Vector3.Angle(Rb.transform.position, ballTransform.position));
-        sensor.AddObservation(Vector3.Distance(Rb.transform.position, defendinggoal.transform.position));
+        sensor.AddObservation(Vector3.Angle(Rb.transform.localPosition, ballTransform.localPosition));
+        sensor.AddObservation(Vector3.Distance(Rb.transform.localPosition, defendinggoal.transform.localPosition));
     }
     /*
     public override void Heuristic(in ActionBuffers actionsOut) //for test purposes only
@@ -138,8 +139,8 @@ public class DefenderAgent : Agent
             Debug.Log(GetCumulativeReward());
             EndEpisode();
         }
-        float agent_from_goal = Vector3.Distance(defendinggoal.GetComponent<Transform>().position, Rb.position);
-        float ball_from_goal = Vector3.Distance(defendinggoal.GetComponent<Transform>().position, ballTransform.position);
+        float agent_from_goal = Vector3.Distance(defendinggoal.GetComponent<Transform>().localPosition, Rb.transform.localPosition);
+        float ball_from_goal = Vector3.Distance(defendinggoal.GetComponent<Transform>().localPosition, ballTransform.localPosition);
         if (agent_from_goal >= 5 && agent_from_goal <= 15)
         {
             AddReward(1);

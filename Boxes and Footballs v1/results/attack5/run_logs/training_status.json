@@ -1,0 +1,29 @@
+{
+    "Attack": {
+        "checkpoints": [
+            {
+                "steps": 43968,
+                "file_path": "results\\attack5\\Attack\\Attack-43968.onnx",
+                "reward": null,
+                "creation_time": 1640550726.6594682,
+                "auxillary_file_paths": [
+                    "results\\attack5\\Attack\\Attack-43968.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 43968,
+            "file_path": "results\\attack5\\Attack.onnx",
+            "reward": null,
+            "creation_time": 1640550726.6594682,
+            "auxillary_file_paths": [
+                "results\\attack5\\Attack\\Attack-43968.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.10.1+cu113"
+    }
+}

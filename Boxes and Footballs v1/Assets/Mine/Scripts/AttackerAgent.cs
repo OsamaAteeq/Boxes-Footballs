@@ -39,9 +39,17 @@ public class AttackerAgent : Agent
         Rb = GetComponent<Rigidbody>();
     }
 
+    public override void OnEpisodeBegin()
+    {
+        //for training
+        Rb.transform.localPosition = new Vector3(Random.Range(-15f, 15f), 0.5f, Random.Range(-20f, 20f));
+        ballTransform.localPosition = new Vector3(Random.Range(-15f, 15f), 1, Random.Range(-20f, 20f));
+        //for training
+    }
+
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(Vector3.Angle(Rb.transform.position, ballTransform.position));
+        sensor.AddObservation(Vector3.Angle(Rb.transform.localPosition, ballTransform.localPosition));
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -89,10 +97,10 @@ public class AttackerAgent : Agent
         {
             shot = true;
             initvelocity = Rb.velocity;
-            initpos = Rb.transform.position;
+            initpos = Rb.transform.localPosition;
             Rb.AddRelativeForce(0, 0, force * 15 * Time.deltaTime);
             //shooting reward only for attacker
-            if (Vector3.Distance(ballTransform.position, Rb.position) < 2) 
+            if (Vector3.Distance(ballTransform.localPosition, Rb.transform.localPosition) < 2) 
             {
                 AddReward(100);
                 Debug.Log(GetCumulativeReward());
@@ -100,13 +108,14 @@ public class AttackerAgent : Agent
         }
 
 
-        if (shot == true && Vector3.Distance(Rb.transform.position, initpos) >= shoot_distance) //stop shoot
+        if (shot == true && Vector3.Distance(Rb.transform.localPosition, initpos) >= shoot_distance) //stop shoot
         {
             shot = false;
             Rb.velocity = initvelocity;
         }
 
     }
+
     /*
     public override void Heuristic(in ActionBuffers actionsOut) //for test purposes only
     {
@@ -134,6 +143,7 @@ public class AttackerAgent : Agent
 
     }
     */
+
     public void Update()
     {
         if (mygoal.GetComponent<GoalScript>().scored == true)
@@ -143,7 +153,7 @@ public class AttackerAgent : Agent
             EndEpisode();
         }
         AddReward(-0.1f);
-        AddReward(1/Vector3.Distance(ballTransform.position, Rb.position));
+        AddReward(1/Vector3.Distance(ballTransform.localPosition, Rb.transform.localPosition));
     }
 
     private void OnCollisionEnter(Collision collision)
