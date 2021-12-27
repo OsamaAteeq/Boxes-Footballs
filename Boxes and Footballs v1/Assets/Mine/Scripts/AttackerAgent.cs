@@ -41,10 +41,12 @@ public class AttackerAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+        /*
         //for training
         Rb.transform.localPosition = new Vector3(Random.Range(-15f, 15f), 0.5f, Random.Range(-20f, 20f));
         ballTransform.localPosition = new Vector3(Random.Range(-15f, 15f), 1, Random.Range(-20f, 20f));
         //for training
+        */
     }
 
     public override void CollectObservations(VectorSensor sensor)

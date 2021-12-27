@@ -2,22 +2,22 @@
     "Attack": {
         "checkpoints": [
             {
-                "steps": 43968,
-                "file_path": "results\\attack5\\Attack\\Attack-43968.onnx",
+                "steps": 35328,
+                "file_path": "results\\attack5\\Attack\\Attack-35328.onnx",
                 "reward": null,
-                "creation_time": 1640550726.6594682,
+                "creation_time": 1640592565.3398945,
                 "auxillary_file_paths": [
-                    "results\\attack5\\Attack\\Attack-43968.pt"
+                    "results\\attack5\\Attack\\Attack-35328.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 43968,
+            "steps": 35328,
             "file_path": "results\\attack5\\Attack.onnx",
             "reward": null,
-            "creation_time": 1640550726.6594682,
+            "creation_time": 1640592565.3398945,
             "auxillary_file_paths": [
-                "results\\attack5\\Attack\\Attack-43968.pt"
+                "results\\attack5\\Attack\\Attack-35328.pt"
             ]
         }
     },

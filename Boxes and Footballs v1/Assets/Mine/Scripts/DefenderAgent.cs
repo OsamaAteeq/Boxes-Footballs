@@ -26,6 +26,7 @@ public class DefenderAgent : Agent
 
     private bool invert = false;
     private bool shot = false;
+
     private Vector3 initpos;
     private Vector3 initvelocity;
 

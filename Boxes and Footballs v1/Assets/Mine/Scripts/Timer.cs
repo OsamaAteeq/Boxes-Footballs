@@ -6,13 +6,14 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public int minutes = 5;
+    public float minutes = 5;
 
     public int fake_seconds = 0;
     public int fake_minutes = 90;
     public string display = "90:00";
 
     public bool reducing = false;
+    private bool closing = false;
     private bool should_reduce = true;
     private int fake2;
 
@@ -27,9 +28,10 @@ public class Timer : MonoBehaviour
         {
             StartCoroutine(StopWatch());
         }
-        else if (fake_minutes + fake_seconds == 0) 
+        else if (!closing && (fake_minutes + fake_seconds == 0)) 
         {
-            StartCoroutine(waitBeforeReset());
+            closing = true;
+            StartCoroutine(waitBeforeEnd());
         }
     }
 
@@ -38,6 +40,7 @@ public class Timer : MonoBehaviour
         should_reduce = false;
         return display;
     }
+
     public void resume(int minute, int seconds) 
     {
         this.fake_minutes = minute;
@@ -46,11 +49,12 @@ public class Timer : MonoBehaviour
         should_reduce = true;
     }
 
-    private IEnumerator waitBeforeReset()
+    private IEnumerator waitBeforeEnd()
     {
-        yield return new WaitForSeconds(5);
+        GetComponent<TextMeshProUGUI>().GetComponent<DisplayScore>().display();
+        yield return new WaitForSeconds(15);
+        Application.Quit();
         
-        display = "90:00";
     }
 
     IEnumerator StopWatch() 
