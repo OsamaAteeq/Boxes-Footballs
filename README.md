@@ -1,6 +1,10 @@
 # Boxes-Footballs
 
-A collective effort by Najam Israr (FA19-BCS-061) & Osama Ateeq (FA19-BCS-065)
+A collective effort by
+
+Najam Israr (FA19-BCS-061)
+
+Osama Ateeq (FA19-BCS-065)
 
 
 ----------------------------------Boxes play football using ML agents----------------------------------
@@ -15,10 +19,15 @@ Unity (prefered newest version)
 -------------------------------------------------Setup-------------------------------------------------
 
 Read : https://github.com/Unity-Technologies/ml-agents/blob/main/README.md
+
 and properly setup mlagents on your system.
+
               or/and
+              
 Watch: https://www.youtube.com/watch?v=zPFU30tbyKs
+
 for setup 1:25 to 10:13
+
 recommended to watch complete tutorial
 
 -------------------------------------------------Build-------------------------------------------------
