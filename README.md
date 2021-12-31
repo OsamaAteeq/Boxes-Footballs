@@ -2,9 +2,9 @@
 
 A collective effort by
 
-Najam Israr (FA19-BCS-061)
+(FA19-BCS-061)
 
-Osama Ateeq (FA19-BCS-065)
+(FA19-BCS-065)
 
 
 ----------------------------------Boxes play football using ML agents----------------------------------
@@ -45,4 +45,4 @@ special thanks to Code Monkey @https://www.youtube.com/channel/UCFK6NCbuCIVzA6Yj
 
 and all contributors of mlagents package @https://github.com/Unity-Technologies/ml-agents
 
-University Instructor
+AI Instructor
