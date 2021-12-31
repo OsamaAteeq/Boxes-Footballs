@@ -29,9 +29,11 @@ recommended to watch complete tutorial
 4) Change architecture based on your device settings 
 5) Build 
 6) Save to preffered folder with preffered name (in empty folder recommended)
-7) 
+
 -------------------------------------------------Thanks------------------------------------------------
 
 special thanks to Code Monkey @https://www.youtube.com/channel/UCFK6NCbuCIVzA6Yj1G_ZqCg
+
 and all contributors of mlagents package @https://github.com/Unity-Technologies/ml-agents
+
 University Instructor
