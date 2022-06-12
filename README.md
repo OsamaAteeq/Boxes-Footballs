@@ -45,4 +45,4 @@ special thanks to Code Monkey @https://www.youtube.com/channel/UCFK6NCbuCIVzA6Yj
 
 and all contributors of mlagents package @https://github.com/Unity-Technologies/ml-agents
 
-AI Instructor
+ML Instructor
